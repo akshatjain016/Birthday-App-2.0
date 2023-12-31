@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎂🎂Happy Birthday🎂🎂</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    function redirectToPage() {
+        const currentDate = new Date();
+        const dayOfMonth = currentDate.getDate();
+        const month = currentDate.getMonth() + 1; // JavaScript months are zero-based
+
+        // Customize the redirection logic based on your requirements
+        let redirectTo = 'default_folder/default_page.html';
+
+        // Define redirects for every day in the year
+        const dayOfYear = (month - 1) * 31 + dayOfMonth; // Approximate day of the year
+
+        // Define redirects based on both the day and month
+        if (month === 12) {
+            if (dayOfMonth === 31) {
+                redirectTo = 'december/MahakJain/index.html';
+            } else if (dayOfMonth === 15) {
+                redirectTo = 'january/mid_month.html';
+            }
+        } else if (month === 2) {
+            if (dayOfMonth === 14) {
+                redirectTo = 'february/valentines_day.html';
+            }
+            // Add more conditions for other days in February if needed
+        } else if (month === 3) {
+            // Add conditions for days in March
+        }
+        // Add conditions for other months and days as needed
+
+        // Combine the base URL with the calculated redirection path
+        const baseUrl = window.location.href.split('/').slice(0, -1).join('/') + '/';
+
+        // Auto-redirect after a delay (e.g., 3 seconds)
+        setTimeout(function () {
+            window.location.href = baseUrl + redirectTo;
+        }, 500); // Adjust the delay as needed (in milliseconds)
+    }
+
+    // Call the function when the page loads
+    redirectToPage();
+</script>
+
+</body>
+</html>
